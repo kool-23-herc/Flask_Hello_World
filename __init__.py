@@ -19,3 +19,7 @@ def exercices():
                                                                                                                
 if __name__ == "__main__":
   app.run(debug=True)
+
+@app.route("/contact/")
+def MaPremiereAPI():
+    return render_template("contact.html")
