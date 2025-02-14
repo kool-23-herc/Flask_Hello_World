@@ -36,6 +36,25 @@ def pi(val1):
     return "<h2>pair</h2>"
   else:
     return "<h2>impaire</h2>"   
+
+
+
+
+
+def somme_valeurs_saisies():
+    somme = 0  
+    while True: 
+        valeur = input("Entrez une valeur (ou 'stop' pour terminer) : ")
+        if valeur.lower() == 'stop':
+            break  
+        try:
+            nombre = float(valeur)
+            somme += nombre  
+        except ValueError:
+            print("Veuillez entrer un nombre valide ou 'stop' pour terminer.")
+    print(f"La somme des valeurs saisies est : {somme}")
+
+somme_valeurs_saisies()
     
 if __name__ == "__main__":
   app.run(debug=True)
