@@ -11,6 +11,14 @@ app = Flask(__name__)
 @app.route("/contact/")
 def MaPremiereAPI():
     return render_template("contact.html") 
+
+@app.route('/calcul_carre/<int:val_user>')
+def carre(val_user):
+    return "<h2>Le carré de votre valeur est : </h2>" + str(val_user*val_user)
+  
+@app.route('/somme/<int:val1>/<int:val2>')
+def somme(val_user):
+    return "<h2>La somme de nos valeurs est : </h2>" + str(val1+val2)
                                                                                                                                        
 @app.route('/')
 def hello_world():
