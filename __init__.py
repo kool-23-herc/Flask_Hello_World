@@ -19,6 +19,13 @@ def carre(val_user):
 @app.route('/somme/<int:val1>/<int:val2>')
 def somme(val_user):
     return "<h2>La somme de nos valeurs est : </h2>" + str(val1+val2)
+
+app.route('/pi/<int:val1>')
+def pi(val1):
+  if val1%2==0:
+    return "la valeur est paire"
+  else:
+    return "la valeur est impaire"
                                                                                                                                        
 @app.route('/')
 def hello_world():
