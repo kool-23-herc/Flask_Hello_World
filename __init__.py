@@ -23,9 +23,9 @@ def somme(val_user):
 @app.route('/pi/<int:val1>')
 def pi(val1):
   if val1%2==0:
-    return "<h2>la valeur est paire<h2>"
+    return "<h2>La somme de nos valeurs est : </h2>"
   else:
-    return "<h2>la valeur est impaire<h2>"
+    return "<h2>La somme de nos valeurs est : </h2>"
                                                                                                                                        
 @app.route('/')
 def hello_world():
