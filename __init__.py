@@ -20,12 +20,7 @@ def carre(val_user):
 def somme(val_user):
     return "<h2>La somme de nos valeurs est : </h2>" + str(val1+val2)
 
-@app.route('/pi/<int:val1>')
-def pi(val1):
-  if val1%2==0:
-    return "<h2>pair</h2>"
-  else:
-    return "<h2>impaire</h2>"
+
                                                                                                                                        
 @app.route('/')
 def hello_world():
@@ -35,7 +30,13 @@ def hello_world():
 def exercices():
     return render_template('exercices.html')
   
-                                                                    
+@app.route('/pi/<int:val1>')
+def pi(val1):
+  if val1%2==0:
+    return "<h2>pair</h2>"
+  else:
+    return "<h2>impaire</h2>"   
+    
 if __name__ == "__main__":
   app.run(debug=True)
 
