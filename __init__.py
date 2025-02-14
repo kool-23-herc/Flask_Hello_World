@@ -20,7 +20,7 @@ def carre(val_user):
 def somme(val_user):
     return "<h2>La somme de nos valeurs est : </h2>" + str(val1+val2)
 
-app.route('/pi/<int:val1>')
+@app.route('/pi/<int:val1>')
 def pi(val1):
   if val1%2==0:
     return "la valeur est paire"
