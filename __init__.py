@@ -51,9 +51,9 @@ def exerciceBase():
 def exerciceBase2():
     return render_template('exercice_base2.html')
 
-@app.route('/french-connection/')
-def image():
-    return render_template('exercice_base2.html')
+# @app.route('/french-connection/')
+# def image():
+#     return render_template('exercice_base2.html')
 
 if __name__ == "__main__":
   app.run(debug=True)
