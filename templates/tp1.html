@@ -36,31 +36,56 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Formulaire</title>
+    <title>Page identique à l'image</title>
 </head>
 <body>
-    <h1>Formulaire</h1>
-    <form action="/submit" method="post">
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="nom"><br><br>
+    <h1>Voici la première partie :</h1>
 
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email"><br><br>
+    <table border="1">
+        <tr>
+            <td>un tableau</td>
+            <td>à 6</td>
+            <td>cases</td>
+        </tr>
+    </table>
 
-        <label for="age">Âge :</label>
-        <input type="number" id="age" name="age"><br><br>
+    <h2>Voici la deuxième partie</h2>
 
-        <label for="genre">Genre :</label>
-        <select id="genre" name="genre">
-            <option value="homme">Homme</option>
-            <option value="femme">Femme</option>
-            <option value="autre">Autre</option>
-        </select><br><br>
+    <h3>Une liste</h3>
+    <ol>
+        <li>premier point
+            <ul>
+                <li>rubrique 1</li>
+                <li>rubrique 2</li>
+            </ul>
+        </li>
+        <li>2e point</li>
+        <li>3e point
+            <ul>
+                <li>rubrique 1</li>
+                <li>rubrique 2</li>
+            </ul>
+        </li>
+    </ol>
 
-        <label for="commentaire">Commentaire :</label><br>
-        <textarea id="commentaire" name="commentaire" rows="4" cols="50"></textarea><br><br>
+    <h2>Voici la troisième partie :</h2>
 
-        <input type="submit" value="Soumettre">
-    </form>
+    <table border="1">
+        <tr>
+            <td>un autre tableau</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
 </body>
 </html>
