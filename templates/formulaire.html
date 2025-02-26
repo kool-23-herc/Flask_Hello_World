@@ -9,30 +9,40 @@
             border: 2px solid black;
             padding: 20px;
         }
+        fieldset {
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+        legend {
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <h1>Nouveau dresseur</h1>
     <div class="form-container">
         <form>
-            <label for="nom">Nom <span style="color:red;">*</span></label><br>
-            <input type="text" id="nom" name="nom" required><br><br>
-            
-            <label for="description">Description :</label><br>
-            <textarea id="description" name="description"></textarea><br><br>
-            
-            <label>Équipe :</label><br>
-            <input type="radio" id="rouge" name="equipe" value="Rouge">
-            <label for="rouge">Rouge</label><br>
-            <input type="radio" id="jaune" name="equipe" value="Jaune">
-            <label for="jaune">Jaune</label><br>
-            <input type="radio" id="bleu" name="equipe" value="Bleu">
-            <label for="bleu">Bleu</label><br><br>
-            
-            <label for="anniversaire">Anniversaire <span style="color:red;">*</span></label><br>
-            <input type="date" id="anniversaire" name="anniversaire" required><br><br>
-            
-            <input type="submit" value="Envoyer">
+            <fieldset>
+                <legend>Nouveau dresseur</legend>
+                <label for="nom">Nom <span style="color:red;">*</span></label><br>
+                <input type="text" id="nom" name="nom" required><br><br>
+                
+                <label for="description">Description :</label><br>
+                <textarea id="description" name="description"></textarea><br><br>
+                
+                <label>Équipe :</label><br>
+                <input type="radio" id="rouge" name="equipe" value="Rouge">
+                <label for="rouge">Rouge</label><br>
+                <input type="radio" id="jaune" name="equipe" value="Jaune">
+                <label for="jaune">Jaune</label><br>
+                <input type="radio" id="bleu" name="equipe" value="Bleu">
+                <label for="bleu">Bleu</label><br><br>
+                
+                <label for="anniversaire">Anniversaire <span style="color:red;">*</span></label><br>
+                <input type="date" id="anniversaire" name="anniversaire" required><br><br>
+                
+                <input type="submit" value="Envoyer">
+            </fieldset>
         </form>
     </div>
 </body>
