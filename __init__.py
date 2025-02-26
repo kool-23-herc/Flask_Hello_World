@@ -13,10 +13,6 @@ def hello_world():
 def exercices():
     return render_template('exercices.html')
 
-@app.route('/exercice_base1/')
-def exercices():
-    return render_template('exercice_base1.html')
-
 
 @app.route("/contact/")
 def MaPremiereAPI():
@@ -46,6 +42,10 @@ def sommetot(val):
 @app.route('/cnam/')
 def cnampage():
     return render_template('cnam.html')
+
+@app.route('/exercice_base1/')
+def exercices():
+    return render_template('exercice_base1.html')
 
 if __name__ == "__main__":
   app.run(debug=True)
