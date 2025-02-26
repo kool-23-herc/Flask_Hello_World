@@ -58,6 +58,10 @@ def exerciceBase3():
 @app.route('/formulaire/')
 def formulaire():
     return render_template('formulaire.html')
+
+@app.route('/tp1/')
+def tp1():
+    return render_template('tp1.html')
   
 if __name__ == "__main__":
   app.run(debug=True)
