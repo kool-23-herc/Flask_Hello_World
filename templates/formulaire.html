@@ -1,43 +1,34 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dresseur de Pokémon</title>
 </head>
 <body>
-<h1>Mon formulaire</h1>
-
-<form action="#">
-<fieldset>
-<legend>Votre Nom et Prénom</legend>
-<p>Nom : <input name="A" type="Text" value="Nom ?"/></p>
-<p>Prénom : <input name="B" type="Text" value="Prénom ?"/></p>
-</fieldset>
-<p>Mr <input name="C" type="radio" value="Mr"/> 
-Mme<input name="C" type="radio" value="Mme"/></p>
-<p>
-Chien <input name="D" type="checkbox" value="Chien"/>
-Chat <input name="E" type="checkbox" value="Chat"/>
-Poisson <input name="F" type="checkbox" value="Poisson"/>
-</p>
-<p>
-<select name="G" multiple>
-<option>Pain</option>
-<option>Citron</option>
-<option>Orange</option>
-</select>
-</p>
-<p>
-<textarea rows="3" cols="30" name="H">
-Laisez nous un commentaire
-</textarea>
-
-</p>
-<p><input type="submit" value="Envoyer" />
-<input type="reset"/>
-</p>
-
-
-</form>
-
+    <h1>Dresseur de Pokémon</h1>
+    <p>Les champs marqués d'une <span style="color:red;">*</span> sont obligatoires.</p>
+    
+    <form>
+        <label for="nouveau-dresseur">Nouveau dresseur</label><br>
+        <label for="nom">Nom <span style="color:red;">*</span></label><br>
+        <input type="text" id="nom" name="nom" required><br><br>
+        
+        <label for="description">Description</label><br>
+        <textarea id="description" name="description"></textarea><br><br>
+        
+        <label>Équipe</label><br>
+        <input type="radio" id="rouge" name="equipe" value="Rouge">
+        <label for="rouge">Rouge</label><br>
+        <input type="radio" id="jaune" name="equipe" value="Jaune">
+        <label for="jaune">Jaune</label><br>
+        <input type="radio" id="bleu" name="equipe" value="Bleu">
+        <label for="bleu">Bleu</label><br><br>
+        
+        <label for="anniversaire">Anniversaire <span style="color:red;">*</span></label><br>
+        <input type="date" id="anniversaire" name="anniversaire" required><br><br>
+        
+        <input type="submit" value="Envoyer">
+    </form>
 </body>
 </html>
