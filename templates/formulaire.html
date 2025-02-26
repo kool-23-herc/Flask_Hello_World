@@ -3,31 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dresseur de Pokémon</title>
+    <title>Nouveau dresseur</title>
 </head>
 <body>
-    <h1>Dresseur de Pokémon</h1> 
-    <p>Les champs marqués d'une <span style="color:red;">*</span> sont obligatoires.</p>
-    
+    <h1>Nouveau dresseur</h1>
+
     <form>
-        <label for="nouveau-dresseur">Nouveau dresseur</label><br>
-        <label for="nom">Nom <span style="color:red;">*</span></label><br>
+        <label for="nom">Nom *</label><br>
         <input type="text" id="nom" name="nom" required><br><br>
-        
-        <label for="description">Description</label><br>
-        <textarea id="description" name="description"></textarea><br><br>
-        
-        <label>Équipe</label><br>
-        <input type="radio" id="rouge" name="equipe" value="Rouge">
-        <label for="rouge">Rouge</label><br>
-        <input type="radio" id="jaune" name="equipe" value="Jaune">
-        <label for="jaune">Jaune</label><br>
-        <input type="radio" id="bleu" name="equipe" value="Bleu">
-        <label for="bleu">Bleu</label><br><br>
-        
-        <label for="anniversaire">Anniversaire <span style="color:red;">*</span></label><br>
+
+        <label>Description :</label><br>
+        <label>
+            <input type="checkbox" id="equipe" name="description" value="Equipe">
+            Equipe
+        </label><br>
+        <label>
+            <input type="checkbox" id="rouge" name="description" value="Rouge">
+            Rouge
+        </label><br>
+        <label>
+            <input type="checkbox" id="jaune" name="description" value="Jaune">
+            Jaune
+        </label><br>
+        <label>
+            <input type="checkbox" id="bleu" name="description" value="Bleu">
+            Bleu
+        </label><br><br>
+
+        <label for="anniversaire">Anniversaire*</label><br>
         <input type="date" id="anniversaire" name="anniversaire" required><br><br>
-        
+
         <input type="submit" value="Envoyer">
     </form>
 </body>
