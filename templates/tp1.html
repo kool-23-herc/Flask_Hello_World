@@ -77,3 +77,60 @@
    
 </body>
 </html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire d'inscription</title>
+</head>
+<body>
+    <h1>Formulaire d'inscription</h1>
+    <form action="/submit" method="post">
+        <label for="pseudo">Votre pseudo :</label>
+        <input type="text" id="pseudo" name="pseudo"><br><br>
+
+        <label for="motdepasse">Votre mot de passe :</label>
+        <input type="password" id="motdepasse" name="motdepasse"><br><br>
+
+        <label for="motdepasse2">Ressaisir votre mot de passe :</label>
+        <input type="password" id="motdepasse2" name="motdepasse2"><br><br>
+
+        <label>OS préféré :</label><br>
+        <input type="radio" id="windowsxp" name="os" value="Windows XP">
+        <label for="windowsxp">Windows XP</label><br>
+        <input type="radio" id="windowsvista" name="os" value="Windows Vista">
+        <label for="windowsvista">Windows Vista</label><br>
+        <input type="radio" id="macosx" name="os" value="MacOS X">
+        <label for="macosx">MacOS X</label><br>
+        <input type="radio" id="linux" name="os" value="Linux">
+        <label for="linux">Linux</label><br>
+        <input type="radio" id="autre" name="os" value="Autre">
+        <label for="autre">Autre</label><br><br>
+
+        <label>Vous possédez :</label><br>
+        <input type="checkbox" id="desktop" name="possede" value="Un ordinateur de bureau">
+        <label for="desktop">Un ordinateur de bureau</label><br>
+        <input type="checkbox" id="portable" name="possede" value="Un portable">
+        <label for="portable">Un portable</label><br>
+        <input type="checkbox" id="netbook" name="possede" value="Un netbook">
+        <label for="netbook">Un netbook</label><br>
+        <input type="checkbox" id="tablette" name="possede" value="Une tablette (Pad)">
+        <label for="tablette">Une tablette (Pad)</label><br><br>
+
+        <label for="profession">Votre profession :</label>
+        <select id="profession" name="profession">
+            <option value="Chômeur">Chômeur</option>
+            <option value="Etudiant">Etudiant</option>
+            <option value="Fonctionnaire">Fonctionnaire</option>
+            <option value="Privé">Privé</option>
+            <option value="Retraité">Retraité</option>
+        </select><br><br>
+
+        <input type="submit" value="S'inscrire !">
+    </form>
+</body>
+</html>
