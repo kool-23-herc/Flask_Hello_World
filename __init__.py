@@ -55,6 +55,9 @@ def exerciceBase2():
 def exerciceBase3():
     return render_template('exercice_base3.html')
 
-
+@app.route('/formulaire/')
+def formulaire():
+    return render_template('formulaire.html')
+  
 if __name__ == "__main__":
   app.run(debug=True)
