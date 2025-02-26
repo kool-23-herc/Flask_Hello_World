@@ -50,10 +50,11 @@ def exerciceBase():
 @app.route('/exercice_base2/')
 def exerciceBase2():
     return render_template('exercice_base2.html')
+  
+@app.route('/exercice_base3/')
+def exerciceBase3():
+    return render_template('exercice_base3.html')
 
-# @app.route('/french-connection/')
-# def image():
-#     return render_template('exercice_base2.html')
 
 if __name__ == "__main__":
   app.run(debug=True)
