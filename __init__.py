@@ -13,6 +13,11 @@ def hello_world():
 def exercices():
     return render_template('exercices.html')
 
+@app.route('/exercice_base1/')
+def exercices():
+    return render_template('exercice_base1.html')
+
+
 @app.route("/contact/")
 def MaPremiereAPI():
     return render_template('contact.html')
