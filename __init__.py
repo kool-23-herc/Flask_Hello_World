@@ -62,6 +62,10 @@ def formulaire():
 @app.route('/tp1/')
 def tp1():
     return render_template('tp1.html')
+
+@app.route('/maison/')
+def maison():
+    return render_template('maison.html')
   
 if __name__ == "__main__":
   app.run(debug=True)
