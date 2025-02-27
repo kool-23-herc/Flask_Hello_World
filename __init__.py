@@ -71,9 +71,9 @@ def maison():
 def vallet():
     return render_template('vallet.html')
 
-@app.route('/chenille/')
-def chenille():
-    return render_template('chenille.html')
+@app.route('/carre/')
+def carre():
+    return render_template('carre.html')
   
 if __name__ == "__main__":
   app.run(debug=True)
