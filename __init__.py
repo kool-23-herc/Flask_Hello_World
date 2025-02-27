@@ -66,6 +66,10 @@ def tp1():
 @app.route('/maison/')
 def maison():
     return render_template('maison.html')
+
+@app.route('/vallet/')
+def vallet():
+    return render_template('vallet.html')
   
 if __name__ == "__main__":
   app.run(debug=True)
