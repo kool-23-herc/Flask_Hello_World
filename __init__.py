@@ -18,9 +18,9 @@ def exercices():
 def MaPremiereAPI():
     return render_template('contact.html')
 
-@app.route('/calcul_carre/<int:val>')
-def carre(val):
-    return "<h2>Le carré de la valeur est : </h2>" + str(val*val)
+# @app.route('/calcul_carre/<int:val>')
+# def carre(val):
+#     return "<h2>Le carré de la valeur est : </h2>" + str(val*val)
 
 @app.route('/somme/<int:val1>/<int:val2>')
 def somme(val1,val2):
