@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>Bibliothèque d'images</title>
@@ -12,13 +13,13 @@
     <script>
         function afficherImages() {
             var imageContainer = document.getElementById('imageContainer');
-            imageContainer.innerHTML = ""; 
+            imageContainer.innerHTML = "";
 
             if (document.getElementById('image1').checked) {
                 var wrapper1 = document.createElement('div');
                 wrapper1.className = 'image-wrapper';
                 var img1 = document.createElement('img');
-                img1.src = 'lien_vers_image1.jpg';
+                img1.src = "{{ url_for('static', filename='image1.jpg') }}"; 
                 img1.alt = 'Image 1';
                 wrapper1.appendChild(img1);
                 imageContainer.appendChild(wrapper1);
@@ -27,7 +28,7 @@
                 var wrapper2 = document.createElement('div');
                 wrapper2.className = 'image-wrapper';
                 var img2 = document.createElement('img');
-                img2.src = 'lien_vers_image2.jpg'; 
+                img2.src = "{{ url_for('static', filename='image2.jpg') }}"; 
                 img2.alt = 'Image 2';
                 wrapper2.appendChild(img2);
                 imageContainer.appendChild(wrapper2);
@@ -36,7 +37,7 @@
                 var wrapper3 = document.createElement('div');
                 wrapper3.className = 'image-wrapper';
                 var img3 = document.createElement('img');
-                img3.src = 'lien_vers_image3.jpg'; 
+                img3.src = "{{ url_for('static', filename='image3.jpg') }}"; 
                 img3.alt = 'Image 3';
                 wrapper3.appendChild(img3);
                 imageContainer.appendChild(wrapper3);
