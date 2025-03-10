@@ -8,8 +8,13 @@
             var saisie = parseInt(document.getElementById('V1').value);
             var resultat = "";
 
-            for (var i = saisie; i >= 1; i--) {  
-                for (var j = 0; j < i; j++) {  
+            for (var i = 1; i <= saisie; i++) {  
+                // Ajouter des espaces avant les étoiles pour aligner à droite
+                for (var j = 0; j < saisie - i; j++) {  
+                    resultat += "&nbsp;";
+                }
+                // Ajouter les étoiles
+                for (var k = 0; k < i; k++) {  
                     resultat += "*";  
                 }
                 resultat += "<br>";
@@ -23,6 +28,6 @@
     <h1>Les étoiles</h1>
     <p>Saisir un chiffre : <input id="V1" type="number"/></p>
     <button onclick="afficher()">Afficher</button>
-    <div id="result"></div>
+    <div id="result" style="font-family: monospace;"></div>
 </body>
 </html>
