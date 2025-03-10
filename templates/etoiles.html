@@ -2,46 +2,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Exercice JS N°2</title>
+    <title>Table de Multiplication</title>
     <script>
-        function afficher() {
-            var saisie = parseInt(document.getElementById('V1').value);
+        function afficherTable() {
+            // Récupérer la valeur saisie par l'utilisateur
+            var nombre = parseInt(document.getElementById('nombre').value);
             var resultat = "";
 
-            // Partie supérieure du losange
-            for (var i = 1; i <= saisie; i++) {
-                // Ajouter des espaces avant les étoiles pour aligner à droite
-                for (var j = 0; j < saisie - i; j++) {
-                    resultat += "&nbsp;";
+            // Vérifier si la saisie est un nombre valide
+            if (isNaN(nombre)) {
+                resultat = "Veuillez saisir un nombre valide.";
+            } else {
+                // Générer la table de multiplication
+                resultat += "<h3>Table de multiplication de " + nombre + " :</h3>";
+                resultat += "<ul>";
+                for (var i = 1; i <= 10; i++) {
+                    resultat += "<li>" + nombre + " x " + i + " = " + (nombre * i) + "</li>";
                 }
-                // Ajouter les étoiles
-                for (var k = 0; k < 2 * i; k++) {
-                    resultat += "*";
-                }
-                resultat += "<br>";
+                resultat += "</ul>";
             }
 
-            // Partie inférieure du losange
-            for (var i = saisie - 1; i >= 1; i--) {
-                // Ajouter des espaces avant les étoiles pour aligner à droite
-                for (var j = 0; j < saisie - i; j++) {
-                    resultat += "&nbsp;";
-                }
-                // Ajouter les étoiles
-                for (var k = 0; k < 2 * i; k++) {
-                    resultat += "*";
-                }
-                resultat += "<br>";
-            }
-
+            // Afficher le résultat
             document.getElementById('result').innerHTML = resultat;
         }
     </script>
 </head>
 <body>
-    <h1>Les étoiles</h1>
-    <p>Saisir un chiffre : <input id="V1" type="number"/></p>
-    <button onclick="afficher()">Afficher</button>
-    <div id="result" style="font-family: monospace;"></div>
+    <h1>Table de Multiplication</h1>
+    <p>Saisir un nombre : <input id="nombre" type="number"/></p>
+    <button onclick="afficherTable()">Afficher la table</button>
+    <div id="result"></div>
 </body>
 </html>
