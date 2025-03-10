@@ -8,14 +8,28 @@
             var saisie = parseInt(document.getElementById('V1').value);
             var resultat = "";
 
-            for (var i = 1; i <= saisie; i++) {  
+            // Partie supérieure du losange
+            for (var i = 1; i <= saisie; i++) {
                 // Ajouter des espaces avant les étoiles pour aligner à droite
-                for (var j = 0; j < saisie - i; j++) {  
+                for (var j = 0; j < saisie - i; j++) {
                     resultat += "&nbsp;";
                 }
                 // Ajouter les étoiles
-                for (var k = 0; k < i; k++) {  
-                    resultat += "*";  
+                for (var k = 0; k < 2 * i; k++) {
+                    resultat += "*";
+                }
+                resultat += "<br>";
+            }
+
+            // Partie inférieure du losange
+            for (var i = saisie - 1; i >= 1; i--) {
+                // Ajouter des espaces avant les étoiles pour aligner à droite
+                for (var j = 0; j < saisie - i; j++) {
+                    resultat += "&nbsp;";
+                }
+                // Ajouter les étoiles
+                for (var k = 0; k < 2 * i; k++) {
+                    resultat += "*";
                 }
                 resultat += "<br>";
             }
