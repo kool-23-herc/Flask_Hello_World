@@ -39,22 +39,17 @@
             }
         }
 
-        function lancer() {
-            if (ballesPlacees === 0) {
-                alert("Vous devez placer au moins une balle !");
-                return;
-            }
-
-            let chiffreAleatoire = Math.floor(Math.random() * 6) + 1;
-            let chambreBleue = document.getElementById("Br" + chiffreAleatoire);
-
-            // Réinitialiser les couleurs des chambres bleues précédentes
-            for (let i = 1; i <= 6; i++) {
-                let chambre = document.getElementById("Br" + i);
-                if (chambre.style.fill === "blue") {
-                    chambre.style.fill = "gray";
-                }
-            }
+        function placerBalle(numero) {
+    console.log("Clique détecté sur la chambre : " + numero);
+    let chambre = document.getElementById("Br" + numero);
+    if (chambre.style.fill === "gray" && ballesPlacees < 3) {
+        chambre.style.fill = "red";
+        ballesPlacees++;
+    } else if (chambre.style.fill === "red") {
+        chambre.style.fill = "gray"; // Permet d'enlever une balle si on clique à nouveau
+        ballesPlacees--;
+    }
+}
 
             chambreBleue.style.fill = "blue";
 
