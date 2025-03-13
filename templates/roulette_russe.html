@@ -4,74 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roulette Russe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f8f8;
+        }
+        h1 {
+            color: #333;
+        }
+        svg {
+            margin: 20px;
+            background-color: antiquewhite;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let ballesPlacees = 0;
-            let chambresRouges = [];
+        let ballesPlacees = 0;
+        let totalGains = 0;
+        let chambresRouges = [];
 
-            function placerBalle(numero) {
-                let chambre = document.getElementById("Br" + numero);
-                
-                if (chambre.style.fill === "gray" && ballesPlacees < 3) {
-                    chambre.style.fill = "red";
-                    chambresRouges.push(numero);
-                    ballesPlacees++;
-                } else if (chambre.style.fill === "red") {
-                    chambre.style.fill = "gray"; // Désélectionner une chambre rouge
-                    chambresRouges = chambresRouges.filter(n => n !== numero);
-                    ballesPlacees--;
-                }
+        function placerBalle(numero) {
+            let chambre = document.getElementById("Br" + numero);
+            
+            if (chambre.style.fill === "gray" && ballesPlacees < 3) {
+                chambre.style.fill = "red";
+                chambresRouges.push(numero);
+                ballesPlacees++;
+            } else if (chambre.style.fill === "red") {
+                chambre.style.fill = "gray"; // Désélectionner une chambre rouge
+                chambresRouges = chambresRouges.filter(n => n !== numero);
+                ballesPlacees--;
+            }
+        }
+
+        function lancer() {
+            if (ballesPlacees === 0) {
+                alert("Vous devez placer au moins une balle !");
+                return;
             }
 
-            function jouer() {
-                if (chambresRouges.length === 0) {
-                    alert("Veuillez placer au moins une balle avant de jouer !");
-                    return;
-                }
+            // Générer une chambre bleue aléatoire
+            let chambreBleueNumero = Math.floor(Math.random() * 6) + 1;
+            let chambreBleue = document.getElementById("Br" + chambreBleueNumero);
 
-                let chambreBleue = Math.floor(Math.random() * 6) + 1;
-                let chambre = document.getElementById("Br" + chambreBleue);
-
-                // Réinitialiser toutes les couleurs sauf les rouges
-                for (let i = 1; i <= 6; i++) {
-                    if (!chambresRouges.includes(i)) {
-                        document.getElementById("Br" + i).style.fill = "gray";
-                    }
-                }
-
-                chambre.style.fill = "blue"; // Colorer une chambre en bleu
-
-                if (chambresRouges.includes(chambreBleue)) {
-                    alert("Perdu ! La chambre bleue est tombée sur une balle.");
-                } else {
-                    let gain = ballesPlacees === 1 ? 10000 : ballesPlacees === 2 ? 100000 : 1000000;
-                    alert("Gagné ! Vous remportez " + gain.toLocaleString() + " € !");
-                }
-            }
-
+            // Réinitialiser toutes les chambres grises et bleues précédentes
             for (let i = 1; i <= 6; i++) {
-                document.getElementById("Br" + i).addEventListener("click", function () {
-                    placerBalle(i);
-                });
+                let chambre = document.getElementById("Br" + i);
+                if (!chambresRouges.includes(i)) {
+                    chambre.style.fill = "gray";
+                }
             }
 
-            document.getElementById("btnJouer").addEventListener("click", jouer);
-        });
+            chambreBleue.style.fill = "blue";
+
+            // Vérifier si la chambre bleue est rouge (perdu)
+            if (chambresRouges.includes(chambreBleueNumero)) {
+                alert("Perdu ! La balle était dans cette chambre, vous perdez tout !");
+                totalGains = 0;
+            } else {
+                let gains = ballesPlacees === 1 ? 10000 :
+                            ballesPlacees === 2 ? 100000 :
+                            ballesPlacees === 3 ? 1000000 : 0;
+                totalGains += gains;
+                alert(`Gagné ! Vous remportez ${gains.toLocaleString()}€. Total des gains : ${totalGains.toLocaleString()}€`);
+            }
+        }
     </script>
 </head>
 <body>
     <h1>Roulette Russe</h1>
-    <svg width="200" height="200" style="background-color:antiquewhite">
+
+    <svg width="200" height="200">
         <circle cx="100" cy="100" r="95" stroke="black" stroke-width="3" fill="none" />
-        <circle id="Br1" cx="100" cy="40" r="25" stroke="black" stroke-width="3" fill="gray" />
-        <circle id="Br2" cx="150" cy="70" r="25" stroke="black" stroke-width="3" fill="gray" />
-        <circle id="Br3" cx="50" cy="70" r="25" stroke="black" stroke-width="3" fill="gray" />
-        <circle id="Br4" cx="50" cy="130" r="25" stroke="black" stroke-width="3" fill="gray" />
-        <circle id="Br5" cx="150" cy="130" r="25" stroke="black" stroke-width="3" fill="gray" />
-        <circle id="Br6" cx="100" cy="160" r="25" stroke="black" stroke-width="3" fill="gray" />
+
+        <circle id="Br1" cx="100" cy="40" r="25" stroke="black" stroke-width="3" fill="gray" onclick="placerBalle(1)" />
+        <circle id="Br2" cx="150" cy="70" r="25" stroke="black" stroke-width="3" fill="gray" onclick="placerBalle(2)" />
+        <circle id="Br3" cx="50" cy="70" r="25" stroke="black" stroke-width="3" fill="gray" onclick="placerBalle(3)" />
+        <circle id="Br4" cx="50" cy="130" r="25" stroke="black" stroke-width="3" fill="gray" onclick="placerBalle(4)" />
+        <circle id="Br5" cx="150" cy="130" r="25" stroke="black" stroke-width="3" fill="gray" onclick="placerBalle(5)" />
+        <circle id="Br6" cx="100" cy="160" r="25" stroke="black" stroke-width="3" fill="gray" onclick="placerBalle(6)" />
+
         <circle cx="100" cy="100" r="10" stroke="black" stroke-width="3" fill="black" />
     </svg>
+
     <br>
-    <button id="btnJouer">Jouer</button>
+    <button onclick="lancer()">Jouer</button>
 </body>
 </html>
