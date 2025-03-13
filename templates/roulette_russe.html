@@ -6,7 +6,8 @@
     <title>Roulette Russe</title>
     <script>
         function lancer() {
-            alert("Le barillet tourne");
+            let chiffreAleatoire = Math.floor(Math.random() * 6) + 1; // Génère un nombre entre 1 et 6
+            alert("Le barillet tourne... Chiffre obtenu : " + chiffreAleatoire);
         }
 
         function afficherNumeroEtColorer(numero) {
