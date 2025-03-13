@@ -8,6 +8,13 @@
         function lancer() {
             let chiffreAleatoire = Math.floor(Math.random() * 6) + 1; // Génère un nombre entre 1 et 6
             alert("Le barillet tourne... Chiffre obtenu : " + chiffreAleatoire);
+
+            // Vérifie si la chambre correspondante est rouge
+            if (document.getElementById("Br" + chiffreAleatoire).style.fill === "red") {
+                alert("Perdu !");
+            } else {
+                alert("Gagné !");
+            }
         }
 
         function afficherNumeroEtColorer(numero) {
