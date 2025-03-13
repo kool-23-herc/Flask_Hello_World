@@ -30,11 +30,11 @@
 
         function placerBalle(numero) {
             let chambre = document.getElementById("Br" + numero);
-            if (chambre.style.fill === "gray" && ballesPlacees < 3) {
-                chambre.style.fill = "red";
+            if (chambre.getAttribute("fill") === "gray" && ballesPlacees < 3) {
+                chambre.setAttribute("fill", "red");
                 ballesPlacees++;
-            } else if (chambre.style.fill === "red") {
-                chambre.style.fill = "gray"; // Permet d'enlever une balle si on clique à nouveau
+            } else if (chambre.getAttribute("fill") === "red") {
+                chambre.setAttribute("fill", "gray"); // Permet d'enlever une balle si on clique à nouveau
                 ballesPlacees--;
             }
         }
@@ -51,14 +51,14 @@
             // Réinitialiser les couleurs des chambres bleues précédentes
             for (let i = 1; i <= 6; i++) {
                 let chambre = document.getElementById("Br" + i);
-                if (chambre.style.fill === "blue") {
-                    chambre.style.fill = "gray";
+                if (chambre.getAttribute("fill") === "blue") {
+                    chambre.setAttribute("fill", "gray");
                 }
             }
 
-            chambreBleue.style.fill = "blue";
+            chambreBleue.setAttribute("fill", "blue");
 
-            if (chambreBleue.style.fill === "red") {
+            if (chambreBleue.getAttribute("fill") === "red") {
                 alert("Perdu ! Vous avez tout perdu !");
                 totalGains = 0; // On perd tout
             } else {
