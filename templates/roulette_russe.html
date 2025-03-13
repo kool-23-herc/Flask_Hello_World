@@ -4,37 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roulette Russe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f8f8;
+        }
+        h1 {
+            color: #333;
+        }
+        svg {
+            margin: 20px;
+            background-color: antiquewhite;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
     <script>
-        function lancer() {
-            let chiffreAleatoire = Math.floor(Math.random() * 6) + 1; // Génère un nombre entre 1 et 6
-            alert("Le barillet tourne... Chiffre obtenu : " + chiffreAleatoire);
+        let ballesPlacees = 0;
+        let totalGains = 0;
 
-            // Vérifie si la chambre correspondante est rouge
-            if (document.getElementById("Br" + chiffreAleatoire).style.fill === "red") {
-                alert("Perdu !");
-            } else {
-                alert("Gagné !");
+        function placerBalle(numero) {
+            let chambre = document.getElementById("Br" + numero);
+            if (chambre.style.fill === "gray" && ballesPlacees < 3) {
+                chambre.style.fill = "red";
+                ballesPlacees++;
+            } else if (chambre.style.fill === "red") {
+                chambre.style.fill = "gray"; // Permet d'enlever une balle si on clique à nouveau
+                ballesPlacees--;
             }
         }
 
-        function afficherNumeroEtColorer(numero) {
-            alert("Chambre numéro " + numero);
-            document.getElementById("Br" + numero).style.fill = "red";
+        function lancer() {
+            if (ballesPlacees === 0) {
+                alert("Vous devez placer au moins une balle !");
+                return;
+            }
+
+            let chiffreAleatoire = Math.floor(Math.random() * 6) + 1;
+            let chambreBleue = document.getElementById("Br" + chiffreAleatoire);
+
+            // Réinitialiser les couleurs des chambres bleues précédentes
+            for (let i = 1; i <= 6; i++) {
+                let chambre = document.getElementById("Br" + i);
+                if (chambre.style.fill === "blue") {
+                    chambre.style.fill = "gray";
+                }
+            }
+
+            chambreBleue.style.fill = "blue";
+
+            if (chambreBleue.style.fill === "red") {
+                alert("Perdu ! Vous avez tout perdu !");
+                totalGains = 0; // On perd tout
+            } else {
+                let gains = ballesPlacees === 1 ? 10000 :
+                            ballesPlacees === 2 ? 100000 :
+                            ballesPlacees === 3 ? 1000000 : 0;
+                totalGains += gains;
+                alert(`Gagné ! Vous remportez ${gains}€. Total des gains : ${totalGains}€`);
+            }
         }
     </script>
 </head>
 <body>
     <h1>Roulette Russe</h1>
-
-    <svg width="200" height="200" style="background-color:antiquewhite">
+    
+    <svg width="200" height="200">
         <circle cx="100" cy="100" r="95" stroke="black" stroke-width="3" fill="none" />
 
-        <circle id="Br1" cx="100" cy="40" r="25" stroke="black" stroke-width="3" fill="gray" onclick="afficherNumeroEtColorer(1)" />
-        <circle id="Br2" cx="150" cy="70" r="25" stroke="black" stroke-width="3" fill="gray" onclick="afficherNumeroEtColorer(2)" />
-        <circle id="Br3" cx="50" cy="70" r="25" stroke="black" stroke-width="3" fill="gray" onclick="afficherNumeroEtColorer(3)" />
-        <circle id="Br4" cx="50" cy="130" r="25" stroke="black" stroke-width="3" fill="gray" onclick="afficherNumeroEtColorer(4)" />
-        <circle id="Br5" cx="150" cy="130" r="25" stroke="black" stroke-width="3" fill="gray" onclick="afficherNumeroEtColorer(5)" />
-        <circle id="Br6" cx="100" cy="160" r="25" stroke="black" stroke-width="3" fill="gray" onclick="afficherNumeroEtColorer(6)" />
+        <circle id="Br1" cx="100" cy="40" r="25" stroke="black" stroke-width="3" fill="gray" onclick="placerBalle(1)" />
+        <circle id="Br2" cx="150" cy="70" r="25" stroke="black" stroke-width="3" fill="gray" onclick="placerBalle(2)" />
+        <circle id="Br3" cx="50" cy="70" r="25" stroke="black" stroke-width="3" fill="gray" onclick="placerBalle(3)" />
+        <circle id="Br4" cx="50" cy="130" r="25" stroke="black" stroke-width="3" fill="gray" onclick="placerBalle(4)" />
+        <circle id="Br5" cx="150" cy="130" r="25" stroke="black" stroke-width="3" fill="gray" onclick="placerBalle(5)" />
+        <circle id="Br6" cx="100" cy="160" r="25" stroke="black" stroke-width="3" fill="gray" onclick="placerBalle(6)" />
 
         <circle cx="100" cy="100" r="10" stroke="black" stroke-width="3" fill="black" />
     </svg>
