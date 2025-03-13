@@ -86,6 +86,10 @@ def images():
 @app.route('/jeu_des/')
 def jeu_des():
     return render_template('jeu_des.html')
+
+@app.route('/roulette_russe/')
+def roulette_russe():
+    return render_template('roulette_russe.html')
   
 if __name__ == "__main__":
   app.run(debug=True)
