@@ -27,18 +27,14 @@
     <script>
         let ballesPlacees = 0;
         let totalGains = 0;
-        let chambresRouges = [];
 
         function placerBalle(numero) {
             let chambre = document.getElementById("Br" + numero);
-            
             if (chambre.style.fill === "gray" && ballesPlacees < 3) {
                 chambre.style.fill = "red";
-                chambresRouges.push(numero);
                 ballesPlacees++;
             } else if (chambre.style.fill === "red") {
-                chambre.style.fill = "gray"; // Désélectionner une chambre rouge
-                chambresRouges = chambresRouges.filter(n => n !== numero);
+                chambre.style.fill = "gray"; // Permet d'enlever une balle si on clique à nouveau
                 ballesPlacees--;
             }
         }
@@ -49,30 +45,28 @@
                 return;
             }
 
-            // Générer une chambre bleue aléatoire
-            let chambreBleueNumero = Math.floor(Math.random() * 6) + 1;
-            let chambreBleue = document.getElementById("Br" + chambreBleueNumero);
+            let chiffreAleatoire = Math.floor(Math.random() * 6) + 1;
+            let chambreBleue = document.getElementById("Br" + chiffreAleatoire);
 
-            // Réinitialiser toutes les chambres grises et bleues précédentes
+            // Réinitialiser les couleurs des chambres bleues précédentes
             for (let i = 1; i <= 6; i++) {
                 let chambre = document.getElementById("Br" + i);
-                if (!chambresRouges.includes(i)) {
+                if (chambre.style.fill === "blue") {
                     chambre.style.fill = "gray";
                 }
             }
 
             chambreBleue.style.fill = "blue";
 
-            // Vérifier si la chambre bleue est rouge (perdu)
-            if (chambresRouges.includes(chambreBleueNumero)) {
-                alert("Perdu ! La balle était dans cette chambre, vous perdez tout !");
-                totalGains = 0;
+            if (chambreBleue.style.fill === "red") {
+                alert("Perdu ! Vous avez tout perdu !");
+                totalGains = 0; // On perd tout
             } else {
                 let gains = ballesPlacees === 1 ? 10000 :
                             ballesPlacees === 2 ? 100000 :
                             ballesPlacees === 3 ? 1000000 : 0;
                 totalGains += gains;
-                alert(`Gagné ! Vous remportez ${gains.toLocaleString()}€. Total des gains : ${totalGains.toLocaleString()}€`);
+                alert(`Gagné ! Vous remportez ${gains}€. Total des gains : ${totalGains}€`);
             }
         }
     </script>
@@ -93,7 +87,6 @@
         <circle cx="100" cy="100" r="10" stroke="black" stroke-width="3" fill="black" />
     </svg>
 
-    <br>
     <button onclick="lancer()">Jouer</button>
 </body>
 </html>
